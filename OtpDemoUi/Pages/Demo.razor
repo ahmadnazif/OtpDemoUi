@@ -1,0 +1,29 @@
+﻿@page "/"
+@inherits DemoBase
+
+<h6>Current time is @Now</h6>
+<h4>Internal OTP Generation</h4>
+Username: @Username
+<br />
+Private Key: @PrivateKey
+<br />
+Generated OTP: @OutOtpString
+<br />
+This OTP will reset in @ResetIn second
+<br />
+<br />
+<br />
+<h4>External OTP Generation (Using any authenticator app)</h4>
+<label class="font-weight-bold">Using authenticator app, please scan this QR code below</label><br />
+<label>OTP Path:</label> @OtpPath
+
+<br />
+<br />
+<br />
+<h4>OTP Verification</h4>
+<div class="form-group">
+    <input class="form-control" placeholder="Enter your OTP here" @bind="InOtpString" />
+    <button class="btn btn-success" @onclick="ValidateOtp">Validate OTP</button>
+    @ValidationResult()
+</div>
+
